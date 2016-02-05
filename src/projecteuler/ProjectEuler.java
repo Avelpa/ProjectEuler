@@ -29,25 +29,23 @@ public class ProjectEuler {
         }
     }
     
+    private static long getIndex(long fibNum)
+    {
+        fibNum*=Math.sqrt(5);
+        fibNum += 0.5;
+        
+        return Math.round(Math.log(fibNum)/Math.log(phi()));
+    }
+
+    private static double phi()
+    {
+        return (1+Math.sqrt(5))/2;
+    }
+    
     public static int Q2Efficient(long largestInclusive)
     {
-     
-//    public static int getIndex(int n)
-//    {
-//        
-//        BigInteger index = BigInteger.valueOf(n);
-//        index = index.multiply(Math.sqrt(5));
-//        
-//   var x = fib.multiply(Math.sqrt(5)).add((1/2));
-//
-//   return Math.round(x.log() / Math.log(phi()));
-//}
-//
-//function phi()
-//{
-//   return (1 + Math.sqrt(5))/ 2;
-//}
-//    }   
+        long index = getIndex(largestInclusive);
+        index = 
         return 0;
     }
     
