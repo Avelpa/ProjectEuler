@@ -4,7 +4,6 @@
  */
 package projecteuler;
 
-import java.math.BigInteger;
 import java.util.Scanner;
 
 /**
@@ -24,7 +23,7 @@ public class ProjectEuler {
         int numTestcases = in.nextInt();
         while (numTestcases-- > 0)
         {
-            Q6.efficient();
+            Q7.inefficient();
         }
     }
 }
