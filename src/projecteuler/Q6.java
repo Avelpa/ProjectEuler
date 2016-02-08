@@ -12,6 +12,23 @@ import static projecteuler.ProjectEuler.in;
  */
 public class Q6 {
 
+    public static void efficient()
+    {
+        long max = in.nextLong();
+        long diff = (3*pow(max, 4)+2*pow(max, 3)-3*pow(max, 2)-2*max)/12;
+        System.out.println(diff);
+    }
+    
+    private static long pow(long num, int power)
+    {
+        long original = num;
+        for (int i = 0; i < power-1; i ++)
+        {
+            num *= original;
+        }
+        return num;
+    }
+    
     public static void inefficient()
     {
         long max = in.nextLong();
