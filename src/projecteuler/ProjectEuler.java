@@ -23,7 +23,7 @@ public class ProjectEuler {
         int numTestcases = in.nextInt();
         while (numTestcases-- > 0)
         {
-            Q7.inefficient();
+            Q7.efficient();
         }
     }
 }
