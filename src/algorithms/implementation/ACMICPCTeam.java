@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package algorithms;
+package algorithms.implementation;
 
 import java.util.BitSet;
 import java.util.Scanner;
