@@ -61,12 +61,17 @@ public class snakesandladders {
         
         GridPoint qe = new GridPoint();
         GridPoint cell = null;
+        
+        boolean good = false;
         while (!queue.isEmpty())
         {
             qe = queue.remove();
             
             if (qe.vertex == board.length-1)
+            {
+                good = true;
                 break;
+            }
             
             for (int i = qe.vertex+1; i < board.length && i <= (qe.vertex+6); i ++)
             {
@@ -81,7 +86,11 @@ public class snakesandladders {
                 }
             }
         }
-        return qe.distance;
+        if (good)
+        {
+            return qe.distance;
+        }
+        return -1;
     }
     
     static class GridPoint
