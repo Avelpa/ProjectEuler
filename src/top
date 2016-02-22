@@ -6,3 +6,8 @@ static Scanner in = new Scanner(System.in);
             solve();
         }
     }
+    
+    private static void solve()
+    {
+        
+    }
