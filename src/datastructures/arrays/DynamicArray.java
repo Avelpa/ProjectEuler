@@ -25,23 +25,25 @@ public class DynamicArray {
         int q = in.nextInt();
         
         ArrayList<Integer>[] arrs = new ArrayList[N];
-        Arrays.fill(arrs, new ArrayList<Integer>());
+        for (int i = 0; i < arrs.length; i ++)
+        {
+            arrs[i] = new ArrayList();
+        }
         
         int lastans = 0;
-        
         while (q-- > 0)
         {
             int type = in.nextInt();
-            int x = in.nextInt(2);
+            int x = in.nextInt();
             int y = in.nextInt();
             
-            if (type == 1)
+            if (type == 1){
                 arrs[(x^lastans)%N].add(y);
+            }
             else if (type == 2)
             {
-                int answer = arrs[(x^lastans)%N].get(y%arrs[(x^lastans)%N].size());
-                System.out.println(answer);
-                lastans = answer;
+                lastans = arrs[(x^lastans)%N].get(y%arrs[(x^lastans)%N].size());
+                System.out.println(lastans);
             }
         }
     }
