@@ -24,16 +24,22 @@ public class LisasWorkbook {
         
         int special = 0;
         int page = 1;
-        int leftOver = 0;
         
         for (int i = 0; i < chapters; i ++)
         {
-            //2 , 1
             int numProbs = in.nextInt();
-            page += (numProbs+leftOver)/maxProbs;
-            leftOver = numProbs%maxProbs;
-            
+            for (int j = 1; j <= numProbs; j ++)
+            {
+                if (j == page)
+                    special ++;
+                
+                if (j%maxProbs == 0)
+                    page ++;
+            }
+            if (numProbs%maxProbs > 0)
+                page ++;
         }
+        
         System.out.println(special);
     }
 }
