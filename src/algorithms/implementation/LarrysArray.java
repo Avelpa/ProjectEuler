@@ -26,30 +26,43 @@ public class LarrysArray {
     private static void solve()
     {
         int size = in.nextInt();
-        int prev = in.nextInt();
-        
-        int sum = 0;
-        
-        for (int i = 1; i < size; i ++)
+        int[] arr = new int[size];
+        for (int i = 0; i < size; i ++)
         {
-            int next = in.nextInt();
-            
-            sum += next-prev;
-            prev = next;
-        }
-        System.out.println("sum" + sum%2);
-        
-        boolean good = false;
-        if (sum > 0)
-        {
-            if (sum%2 == 0)
-                good = true;
-        } else {
-            if (Math.abs(sum)%2 == 1)
-                good = true;
+            arr[i] = in.nextInt();
         }
         
-        System.out.println(good ? "YES": "NO");
+        int max = 0;
+        for (int i = 0; i < arr.length; i ++)
+        {
+            if (!bringToIndex(arr[i]-1, i))
+            {
+                System.out.println("NO");
+                return;
+            }
+        }
+        System.out.println("YES");
+    }
+    
+    private static boolean bringToIndex(int targetIndex, int curIndex)
+    {
+    }
+    
+    private static  void printArray(int[] arr)
+    {
+        for (Integer i: arr)
+        {
+            System.out.print(i + ",");
+        }
+        System.out.println();
+    }
+    
+    private static void rotateArray(int[] arr, int startIndex)
+    {
+        int first = arr[startIndex];
+        arr[startIndex] = arr[startIndex+1];
+        arr[startIndex+1] = arr[startIndex+2];
+        arr[startIndex+2] = first;
     }
     
 }
