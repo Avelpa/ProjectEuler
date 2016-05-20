@@ -32,20 +32,56 @@ public class LarrysArray {
             arr[i] = in.nextInt();
         }
         
-        int max = 0;
-        for (int i = 0; i < arr.length; i ++)
+        int min = Integer.MAX_VALUE;
+        
+        for (int i = 1; i <= arr.length; i ++)
         {
-            if (!bringToIndex(arr[i]-1, i))
+            for (int j = i-1; j < arr.length; j ++)
             {
-                System.out.println("NO");
-                return;
+                if (arr[j] == i && !bringToIndex(i-1, j, arr))
+                {
+                    System.out.println("NO");
+                    printArray(arr);
+                    return;
+                }
+                if (arr[j] == 1)
+                    printArray(arr);
             }
         }
         System.out.println("YES");
+//        System.out.println(bringToIndex(0, 2, arr));
+        printArray(arr);
     }
     
-    private static boolean bringToIndex(int targetIndex, int curIndex)
+    private static boolean bringToIndex(int targetIndex, int curIndex, int[] arr)
     {
+        int rotIndex = 0;
+        int prevRotIndex = rotIndex;
+        int loopCount = 0;
+        while (curIndex > targetIndex && loopCount < 3)
+        {
+            if (curIndex >= arr.length-3)
+            {
+                rotIndex = arr.length-3;
+            } else if (curIndex <= targetIndex+3)
+            {
+                rotIndex = targetIndex+1;
+            }
+            
+            if (rotIndex == prevRotIndex)
+                loopCount ++;
+            else
+                loopCount = 0;
+            
+            rotateArray(arr, rotIndex);
+            curIndex --;
+            
+            prevRotIndex = rotIndex;
+        }
+        
+        if (loopCount == 3)
+            return false;
+        return true;
     }
     
     private static  void printArray(int[] arr)
